@@ -9,6 +9,22 @@ angular.module('app')
             function($rootScope, $state, $stateParams) {
                 $rootScope.$state = $state;
                 $rootScope.$stateParams = $stateParams;
+                $rootScope.page = {
+                    pageSize: [{
+                        name: '10',
+                        id: 1
+                    }, {
+                        name: '20',
+                        id: 2
+                    }, {
+                        name: '50',
+                        id: 3
+                    }],
+                    selectedPageSize: {
+                        name: 10,
+                        id: 1
+                    }
+                };
             }
         ]
     )
@@ -32,7 +48,7 @@ angular.module('app')
                             ]
                         }
                     })
-                    /*首页*/
+                    //首页
                     .state('ipps.dashboard', {
                         url: '/dashboard',
                         templateUrl: 'views/dashboard/dashboard.html',
@@ -43,6 +59,55 @@ angular.module('app')
                                     return $ocLazyLoad.load([
                                     	'views/dashboard/script/dashboard-controller.js',
                                     	'views/dashboard/script/dashboard-service.js'
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
+                    //维权管理
+                    .state('ipps.rights', {
+                        url: '/rights',
+                        template: '<div ui-view class="fade-in-up" ng-init="app.Layout=true;" style="height:100%;"></div>',
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        // 'views/dashboard/script/dashboard-controller.js',
+                                        // 'views/dashboard/script/dashboard-service.js'
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
+                    //检索维权
+                    .state('ipps.rights.search', {
+                        url: '/search',
+                        templateUrl: 'views/search-rights/search-rights.html',
+                        controller: "searchRightsCtrl",
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load("ui.select").then(function() {
+                                        return $ocLazyLoad.load([
+                                            'views/search-rights/script/search-rights-controller.js',
+                                            'views/search-rights/script/search-rights-service.js'
+                                        ]);
+                                    });
+                                }
+                            ]
+                        }
+                    })
+                    //购买鉴定维权
+                    .state('ipps.rights.appraise', {
+                        url: '/appraise',
+                        templateUrl: 'views/appraise-rights/appraise-rights.html',
+                        controller: "appraiseRightsCtrl",
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        'views/appraise-rights/script/appraise-rights-controller.js',
+                                        'views/appraise-rights/script/appraise-rights-service.js'
                                     ]);
                                 }
                             ]

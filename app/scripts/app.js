@@ -1,6 +1,6 @@
 'use strict';
 
-
+agGrid.initialiseAgGridWithAngular1(angular);
 angular.module('app', [
     'ngAnimate',
     'ngCookies',
@@ -15,5 +15,6 @@ angular.module('app', [
     'ui.validate',
     'oc.lazyLoad',
     'pascalprecht.translate',
-    'ng-echarts'
+    'ng-echarts',
+    'agGrid'
 ]);

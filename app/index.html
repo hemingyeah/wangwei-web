@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles/simple-line-icons.css" type="text/css" />
   <link rel="stylesheet" href="styles/font.css" type="text/css" />
   <link rel="stylesheet" href="styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="styles/ag-grid/theme-fresh.css">
 </head>
 <body ng-controller="AppCtrl">
   <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
@@ -32,7 +33,7 @@
   <script src="vendor/angular/ngstorage/ngStorage.js"></script>
 
   <!-- bootstrap -->
-  <script src="vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower-components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <!-- lazyload -->
   <script src="vendor/angular/oclazyload/ocLazyLoad.js"></script>
   <!-- translate -->
@@ -44,6 +45,10 @@
   <script src="bower-components/echarts/echarts-all.js"></script>
   <script src="bower-components/echarts/theme/wangwei-theme.js"></script>
   <script src="bower-components/echarts/ng-echarts.js"></script>
+  <!-- ag-grid -->
+  <script src="bower-components/ag-grid/dist/ag-grid-enterprise.js"></script>
+  <!-- ui-select -->
+<!--   <script src="bower-components/ui-select/dist/select.css"></script> -->
   <!-- App -->
   <script src="scripts/app.js"></script>
   <script src="scripts/config.js"></script>
@@ -64,6 +69,14 @@
   <script src="scripts/directives/ui-toggleclass.js"></script>
   <script src="scripts/directives/ui-validate.js"></script>
   <script src="scripts/controllers/bootstrap.js"></script>
+  <!-- custom directives -->
+  <script src="scripts/directives/public-components.js"></script>
+  <script src="scripts/directives/custom-grid.js"></script>
+  <script src="scripts/directives/custom-buttons.js"></script>
+  <!-- custom service -->
+  <script src="scripts/services/grid-service.js"></script>
+  <script src="scripts/services/data-exchange.js"></script>
+  <script src="scripts/services/http-service.js"></script>
   <!-- Lazy loading -->
 </body>
 </html>
