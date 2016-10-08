@@ -17,7 +17,7 @@ app.factory('gridService', ['$compile', function($compile) {
                     return params.rowIndex + 1;
                 }
             }, {
-                headerName: '<span class="ag-cell-wrapper display-block c-check-box"><input type="checkbox" name="name" class="ag-selection-checkbox"><span class="ag-cell-value"></span></span>',
+                headerName: '<span class="ag-cell-wrapper display-block c-check-box"><input type="checkbox" name="name" class="ag-selection-checkbox" ng-click="headClick($event,acheckBox)" ng-model="acheckBox"><span class="ag-cell-value"></span></span>',
                 checked: true,
                 field: "checkBox",
                 width: 46,
@@ -54,7 +54,6 @@ app.factory('gridService', ['$compile', function($compile) {
                 },
                 rowSelected: function() {},
                 getMainMenuItems: function(params) { //
-                    debugger
                     switch (params.column.getId()) {
 
                         // return the defaults, put add some extra items at the end
@@ -157,6 +156,25 @@ app.factory('gridService', ['$compile', function($compile) {
                     return params.colDef.headerName;
                 }
             };
+            /**
+             * ag-grid导出excel
+             * 独孤宇云 2016-9-14
+             */
+            $scope.exportAsExcel = function () {
+                var params = {
+                    skipHeader: false,
+                    skipFooters: false,
+                    skipGroups: false,
+                    skipFloatingTop: false,
+                    skipFloatingBottom: false,
+                    allColumns: true,
+                    onlySelected: false,
+                    suppressQuotes: true,
+                    fileName: "表格数据.csv",
+                    columnSeparator: ""
+                };
+                $scope.gridOptions.api.exportDataAsCsv(params);
+            }
         },
         construtor: function($scope) {
             var obj = {};

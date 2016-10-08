@@ -11,7 +11,7 @@ angular.module('app')
                 $rootScope.$stateParams = $stateParams;
                 $rootScope.page = {
                     pageSize: [{
-                        name: '10',
+                        name: '20',
                         id: 1
                     }, {
                         name: '20',
@@ -33,17 +33,29 @@ angular.module('app')
             function($stateProvider, $urlRouterProvider) {
 
                 $urlRouterProvider
-                    .otherwise('/ipps/dashboard');//ipps 知识产权保护系统的缩写
+                    .otherwise('/login'); //ipps 知识产权保护系统的缩写
                 $stateProvider
                 /*网维路由配置*/
+                    .state('login', {
+                        url: '/login',
+                        templateUrl: 'views/login/login.html',
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        'views/login/script/login-controller.js'
+                                        ]);
+                                }
+                            ]
+                        }
+                    })
                     .state('ipps', {
                         url: '/ipps',
                         templateUrl: 'tpl/app.html',
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function($ocLazyLoad) {
-                                    return $ocLazyLoad.load([
-                                    ]);
+                                    return $ocLazyLoad.load([]);
                                 }
                             ]
                         }
@@ -57,8 +69,8 @@ angular.module('app')
                             deps: ['$ocLazyLoad',
                                 function($ocLazyLoad) {
                                     return $ocLazyLoad.load([
-                                    	'views/dashboard/script/dashboard-controller.js',
-                                    	'views/dashboard/script/dashboard-service.js'
+                                        'views/dashboard/script/dashboard-controller.js',
+                                        'views/dashboard/script/dashboard-service.js'
                                     ]);
                                 }
                             ]
@@ -87,12 +99,10 @@ angular.module('app')
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function($ocLazyLoad) {
-                                    return $ocLazyLoad.load("ui.select").then(function() {
-                                        return $ocLazyLoad.load([
-                                            'views/search-rights/script/search-rights-controller.js',
-                                            'views/search-rights/script/search-rights-service.js'
-                                        ]);
-                                    });
+                                    return $ocLazyLoad.load([
+                                        'views/search-rights/script/search-rights-controller.js',
+                                        'views/search-rights/script/search-rights-service.js'
+                                    ]);
                                 }
                             ]
                         }
@@ -113,7 +123,52 @@ angular.module('app')
                             ]
                         }
                     })
-                /*网维路由配置*/
+                    .state('ipps.settings', {
+                        url: '/settings',
+                        template: '<div ui-view class="fade-in-up" ng-init="app.Layout=true;" style="height:100%;"></div>',
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        //
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
+                    //设置--品牌代付支付宝
+                    .state('ipps.settings.alipay', {
+                        url: '/alipay',
+                        templateUrl: 'views/alipay/alipay.html',
+                        controller: "alipayCtrl",
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        'views/alipay/script/alipay-controller.js',
+                                        'views/alipay/script/alipay-service.js'
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
+                    //购买鉴定维权
+                    .state('ipps.settings.whitelist', {
+                        url: '/whitelist',
+                        templateUrl: 'views/white-list/white-list.html',
+                        controller: "whiteListCtrl",
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        'views/white-list/script/white-list-controller.js',
+                                        'views/white-list/script/white-list-service.js'
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
+                    /*网维路由配置*/
                     .state('app', {
                         abstract: true,
                         url: '/app',

@@ -1,0 +1,36 @@
+/*公共样式库 独孤宇云 2016-9-14*/
+.clearfix: {
+	overflow: hidden;
+}
+.text-center: {
+	text-align: center;
+}
+.mgr-right-5: {
+	margin-right:  5px !important;
+}
+.mgr-right10: {
+	margin-right:  10px;
+}
+.mgr-right15: {
+	margin-right:  15px;
+}
+.mgr-right20: {
+	margin-right:  20px;
+}
+.file-btn: {
+	position: relative;
+	float: right;
+	overflow: hidden;
+	text-indent: 0;
+	line-height: 20px;
+	input {
+	    position: absolute;
+	    font-size: 100px;
+	    right: 0;
+	    top: 0;
+	    opacity: 0;
+	}
+}
+.form-modal: {
+	margin: 20px 40px;
+}

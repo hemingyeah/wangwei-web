@@ -1,6 +1,6 @@
 <div class="container" style="margin: 20px 0px 0px 0px;">
     <div class="panel panel-default">
-        <div class="panel-heading"><span>维权数据 / 检索维权</span></div>
+        <div class="panel-heading"><span>维权数据 / 购买鉴定</span></div>
         <div class="panel-body">
             <div class="form-group col-md-4" style="margin-bottom: 0px;">
                 <label class="col-sm-3" style="padding: 0px; margin: 6px -50px 0px 0px;">关键词:</label>
@@ -9,7 +9,7 @@
                         <ui-select-match>
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
-                        <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                        <ui-select-choices repeat="item in (itemArray1 | filter: $select.search) track by item.id">
                             <span ng-bind="item.name"></span>
                         </ui-select-choices>
                     </ui-select>

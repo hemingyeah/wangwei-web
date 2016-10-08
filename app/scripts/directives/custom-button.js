@@ -1,12 +1,16 @@
 /*
  *按钮权限
  */
-app.directive('customButtons', ['btnGroup', '$templateCache', function(btnGroup, $templateCache) {
+app.directive('cusButton', ['btnGroup', function(btnGroup) {
     return {
         restrict: "E",
-        template: $templateCache.get('tpl/button-group.html'),
+        templateUrl: "views/template/button-group.html",
         replace: true,
-        link: function(scope, e, a, model) {},
+        link: function(scope, element, attrs, model) {
+            element.css({
+                margin: "10px 0px"
+            })
+        },
         controller: ['$scope', function($scope) {
             $scope.moreBtns = [];
             if ($scope.businessBtns) {

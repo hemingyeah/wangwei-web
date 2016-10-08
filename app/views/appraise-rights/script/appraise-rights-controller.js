@@ -1,6 +1,6 @@
-app.controller('searchRightsCtrl', ['$scope', 'gridService', 'searchRightsService',
-    function($scope, gridService, searchRightsService) {
-        $scope.service = searchRightsService;
+app.controller('appraiseRightsCtrl', ['$scope', 'gridService', 'appraiseRightsService',
+    function($scope, gridService, appraiseRightsService) {
+        $scope.service = appraiseRightsService;
         gridService.gridInit($scope);
         //构造业务按钮
         $scope.businessBtns = [{
@@ -10,56 +10,54 @@ app.controller('searchRightsCtrl', ['$scope', 'gridService', 'searchRightsServic
             "icon": "fa fa-pencil",
             "group": false
         }]
-        $scope.itemArray = [
-            { id: 1, name: '关键词1' },
-            { id: 2, name: '关键词2' },
-            { id: 3, name: '关键词3' },
-            { id: 4, name: '关键词4' },
-            { id: 5, name: '关键词5' }
+        $scope.itemArray1 = [
+            { id: 1, name: '品牌批次    ' },
+            { id: 2, name: '投诉Id' },
+            { id: 3, name: '卖家昵称' }
         ];
-        $scope.selected = { value: $scope.itemArray[0] };
+        $scope.selected = { value: $scope.itemArray1[0] };
 
         $scope.columnDefs = $scope.columnDefs.concat([{
-            headerName: "打印机名称",
+            headerName: "投诉Id",
             /*打印机编号*/
             // checked: true,
-            field: "printerName",
+            field: "complaintId",
             width: 100
         }, {
-            headerName: "打印机类型",
+            headerName: "品牌批次",
             /*打印单据类型*/
             checked: true,
-            field: "printType",
+            field: "brandBatches",
             width: 200,
         }, {
-            headerName: "运输单位",
+            headerName: "淘宝链接",
             /*运输单位*/
             checked: true,
-            field: "transporterUnitId",
+            field: "taobaoUrl",
             width: 150
         }, {
-            headerName: "作业区",
+            headerName: "卖家昵称",
             /*作业区*/
             checked: true,
-            field: "workspace",
+            field: "sellerNickname",
             width: 100
         }, {
-            headerName: "绑定地址",
+            headerName: "店铺信誉",
             /*IP*/
             checked: true,
-            field: "bindIp",
-            width: 180
-        }, {
-            headerName: "端口",
-            /*端口*/
-            checked: true,
-            field: "bindPort",
+            field: "storeCredit",
             width: 80
         }, {
-            headerName: "设备ID",
+            headerName: "组合购物",
             /*端口*/
             checked: true,
-            field: "deviceUkid",
+            field: "groupShopping",
+            width: 80
+        }, {
+            headerName: "投诉时间",
+            /*端口*/
+            checked: true,
+            field: "complaintTime",
             width: 200
         }]);
         var rowData = [

@@ -7,39 +7,33 @@ app.value('btnGroup', {
     }],
     baseBtns: [{ //由于右浮动原因，现排序大号在前
         "code": "add",
-        "name": "base.new",
+        "name": "新增",
         "index": 1000,
         "icon": "fa fa-plus",
         "group": false,
         "float": false //静止浮动排列在左侧
     }, {
         "code": "delete",
-        "name": "base.delete",
+        "name": "删除",
         "index": 1006,
         "icon": "fa fa-trash-o",
         "group": false
     }, {
         "code": "edit",
-        "name": "base.edit",
+        "name": "编辑",
         "index": 1007,
         "icon": "fa fa-pencil",
         "group": false
     }, {
         "code": "refresh",
-        "name": "base.refresh",
+        "name": "刷新",
         "index": 1001,
         "icon": "fa fa-refresh",
         "group": false
     }, {
         "code": "setting",
-        "name": "base.set",
+        "name": "设置",
         "index": 1001,
-        "icon": "",
-        "group": false
-    }, {
-        "code": "setExpress",
-        "name": "base.setExpress",
-        "index": 1002,
         "icon": "",
         "group": false
     }]

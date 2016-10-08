@@ -1,0 +1,32 @@
+<!-- 登录 -->
+<div class="body">
+	<div class="login-box container w-xxl w-auto-xs" ng-controller="loginCtrl" ng-init="app.settings.container = false;">
+	    <a href class="navbar-brand block m-t">安乎</a>
+	    <div class="m-b-lg">
+	        <form name="form" class="form-validation">
+	            <div class="form-group cus-form "><strong>登录注册</strong></div>
+	            <div class="form-group cus-form ">
+	                <label class="hidden ">账号</label>
+	                <input type="text " class="form-control " placeholder="手机/邮箱" required>
+	            </div>
+	            <div class="form-group ">
+	                <label class="hidden ">密码</label>
+	                <input type="password " class="form-control " placeholder="密码" required>
+	            </div>
+	            <div class="form-group cus-form ">
+	                <span class="pull-left ">忘记密码</span><span class="pull-right ">注册</span>
+	            </div>
+	            <div class="form-group ">
+	                <button class="btn btn-default" type="submit" style="width: 100%;background:#f8b600;color:#fff;border: none; " ng-click="event.login()">登录</button>
+	            </div>
+	            <div class="form-group cus-form ">
+	                <span class="pull-left ">第三方账号登录</span>
+	                <span class="pull-right "><a class="icon-account icon-weibo " href="javascript:; " title="用新浪微博账号登录 "></a></span>
+	                <span class="pull-right "><a class="icon-account icon-wechat " href="javascript:; " title="用微信账号登录 "></a></span>
+	                <span class="pull-right "><a class="icon-account icon-taobao " href="javascript:; " title="用淘宝账号登录 "></a></span>
+	            </div>
+	        </form>
+	    </div>
+	    <!-- <div class="text-center" ng-include="'tpl/blocks/page_footer.html'"></div> -->
+	</div>
+</div>

@@ -16,5 +16,6 @@ angular.module('app', [
     'oc.lazyLoad',
     'pascalprecht.translate',
     'ng-echarts',
-    'agGrid'
+    'agGrid',
+    'ui.select'
 ]);

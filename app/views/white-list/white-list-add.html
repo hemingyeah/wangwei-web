@@ -1,0 +1,32 @@
+<cus-panel dialog>
+    <phead>白名单编辑</phead>
+    <pbody>
+        <form name="form" class="form-validation form-horizontal form-modal">
+            <cus-text label="账号" colspan="2" ngmodel="model.Account" ngdisabled="model.Id" Required></cus-text>
+            <cus-text label="账号名称" colspan="2" ngmodel="model.AccountName" Required></cus-text>
+            <cus-text label="密码" colspan="2" ngmodel="model.Password" ng-if="!model.Id" Required></cus-text>
+            <cus-text label="确认密码" colspan="2" ngmodel="model.RePassword" ng-if="!model.Id" Required></cus-text>
+            <cus-text label="账号描述" colspan="2" ngmodel="model.AccountDesc"></cus-text>
+            <cus-form label="状态">
+            	<ui-select ng-model="selected.value" theme="bootstrap">
+            	    <ui-select-match>
+            	        <span ng-bind="$select.selected.name"></span>
+            	    </ui-select-match>
+            	    <ui-select-choices repeat="item in itemArray1 track by item.id">
+            	        <span ng-bind="item.name"></span>
+            	    </ui-select-choices>
+            	</ui-select>
+            </cus-form>
+            <cus-form label="数字">
+            	<cus-number ngmodel="model.DistributionNum" max='100000' ButtonStyle='top' Required></cus-number>
+            </cus-form>
+            <cus-form label="开关">
+            	<cus-switch></cus-switch>
+            </cus-form>
+        </form>
+    </pbody>
+    <pfoot>
+        <button class="btn m-b-xs btn-info" style="min-width:90px;margin-right: 6px;" ng-disabled="form.$invalid" ng-click="event.save()">保存</button>
+        <button class="btn m-b-xs btn-default" style="min-width:90px;" ng-click="event.close()">关闭</button>
+    </pfoot>
+</cus-panel>
