@@ -1,7 +1,7 @@
 <cus-panel dialog>
     <phead>白名单编辑</phead>
     <pbody>
-        <form name="form" class="form-validation form-horizontal form-modal">
+        <form name="form" class="form-validation form-horizontal">
             <cus-text label="账号" colspan="2" ngmodel="model.Account" ngdisabled="model.Id" Required></cus-text>
             <cus-text label="账号名称" colspan="2" ngmodel="model.AccountName" Required></cus-text>
             <cus-text label="密码" colspan="2" ngmodel="model.Password" ng-if="!model.Id" Required></cus-text>

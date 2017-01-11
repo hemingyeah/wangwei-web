@@ -20,13 +20,13 @@ gulp.task('webserver', function() {
     connect.server({
         root: 'app',
         livereload: false,
-        port: 8080
+        port: 8081
     });
 });
 
 //打开浏览器
 gulp.task('openBrowser', function() {
-    opn('http://127.0.0.1:8080/');
+    opn('http://127.0.0.1:8081/');
 });
 
 gulp.task('default', gulpSequence('webserver','openBrowser'));

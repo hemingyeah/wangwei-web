@@ -17,5 +17,6 @@ angular.module('app', [
     'pascalprecht.translate',
     'ng-echarts',
     'agGrid',
-    'ui.select'
+    'ui.select',
+    'ADM-dateTimePicker',
 ]);

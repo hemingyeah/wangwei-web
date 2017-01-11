@@ -32,4 +32,15 @@ angular.module('app')
     // $locationProvider.html5Mode({
     //     enabled: true
     // });
+    // 
+    
+
+    //日期控件全局配置
+    // ADMdtp.setOptions({
+    //     calType: 'gregorian',
+    //     format: 'YYYY-MM-DD hh:mm',
+    //     default: 'today',
+    //     // transition:false//去掉切换动画效果
+    //     // transition:false//去掉切换动画效果
+    // });
   }]);
